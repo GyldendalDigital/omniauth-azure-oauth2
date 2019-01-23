@@ -54,6 +54,12 @@ module OmniAuth
         }
       end
 
+      extra do
+        {
+          raw_info: raw_info
+        }
+      end
+
       def token_params
         azure_resource = request.env['omniauth.params'] && request.env['omniauth.params']['azure_resource']
         super.merge(resource: azure_resource || options.resource)
